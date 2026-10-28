@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="A premium personal finance and expense tracking dashboard.">
+  <title>Amdani Kharcha— Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">AK</span><span>Amdani Kharcha<span class="brand-dot">.</span></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview"><span>◫</span> Overview</a>
+        <a class="nav-link" href="#transactions"><span>⇄</span> Transactions</a>
+        <a class="nav-link" href="#analytics"><span>▥</span> Analytics</a>
+        <a class="nav-link" href="#budgets"><span>◎</span> Budgets</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="upgrade-card"><div class="sparkle">✦</div><strong>Build better habits.</strong><p>Small steps today, more freedom tomorrow.</p><a href="#budgets">Explore budgets ↗</a></div>
+        <div class="profile"><div class="avatar">CK</div><div><strong>Chaitanya Khonde</strong><small>Personal account</small></div><span class="online-dot"></span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><div class="eyebrow"><span class="status-dot"></span> YOUR FINANCIAL SPACE</div><h1>Paise Bacha le Bhai  <span class="title-period">.</span></h1><p class="muted">A clearer view of your money starts here.</p></div>
+        <div class="top-actions"><button id="exportBtn" class="btn btn-ghost">↧ <span>Export CSV</span></button><button id="openAddBtn" class="btn btn-primary"><span>＋</span> Add transaction</button></div>
+      </header>
+
+      <section id="overview" class="stats-grid">
+        <article class="stat-card balance-card reveal"><div class="stat-top"><span>Total balance</span><span class="stat-icon">◈</span></div><div id="balanceValue" class="stat-value">₹0</div><div class="stat-bottom"><span class="pill pill-green">● Live overview</span><span class="muted tiny">Income − expenses</span></div><div class="balance-glow"></div></article>
+        <article class="stat-card reveal"><div class="stat-top"><span>Total income</span><span class="stat-icon green-icon">↗</span></div><div id="incomeValue" class="stat-value">₹0</div><div class="stat-bottom"><span class="trend positive">↗ Money in</span><span class="muted tiny">This month</span></div></article>
+        <article class="stat-card reveal"><div class="stat-top"><span>Total expenses</span><span class="stat-icon coral-icon">↘</span></div><div id="expenseValue" class="stat-value">₹0</div><div class="stat-bottom"><span class="trend negative">↘ Money out</span><span class="muted tiny">This month</span></div></article>
+        <article class="stat-card reveal"><div class="stat-top"><span>Savings rate</span><span class="stat-icon purple-icon">✧</span></div><div id="savingsValue" class="stat-value">0%</div><div class="stat-bottom"><span class="trend positive">✦ Keep it up</span><span class="muted tiny">Of income</span></div></article>
+      </section>
+
+      <section id="analytics" class="content-grid">
+        <article class="panel chart-panel reveal"><div class="panel-heading"><div><h2>Cash flow</h2><p class="muted">Income vs. expenses through the year</p></div><span id="yearLabel" class="soft-chip"></span></div><div class="chart-wrap"><canvas id="cashflowChart" aria-label="Monthly income and expenses chart"></canvas></div></article>
+        <article class="panel category-panel reveal"><div class="panel-heading"><div><h2>Spending breakdown</h2><p class="muted">Where your money goes</p></div><span class="mini-icon">◉</span></div><div class="donut-wrap"><canvas id="categoryChart" aria-label="Expense categories chart"></canvas><div class="donut-center"><strong id="donutTotal">₹0</strong><span>spent this month</span></div></div><div id="categoryLegend" class="category-legend"><p class="empty-hint">Add expenses to see your breakdown.</p></div></article>
+      </section>
+
+      <section class="lower-grid">
+        <article id="transactions" class="panel transactions-panel reveal"><div class="panel-heading"><div><h2>Recent transactions</h2><p class="muted">Your latest money moves</p></div><button id="viewAllBtn" class="text-btn">View all ↗</button></div>
+          <div class="filters"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search transactions…"></label><select id="typeFilter" aria-label="Filter transaction type"><option value="">All types</option><option value="income">Income</option><option value="expense">Expenses</option></select><select id="categoryFilter" aria-label="Filter category"><option value="">All categories</option><option>Salary</option><option>Freelance</option><option>Food</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Housing</option><option>Other</option></select></div>
+          <div class="table-scroll"><table><thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th class="amount-cell">AMOUNT</th><th></th></tr></thead><tbody id="transactionRows"><tr><td colspan="5" class="empty-hint">Loading transactions…</td></tr></tbody></table></div>
+          <div id="transactionCount" class="table-footer">Showing recent activity</div>
+        </article>
+        <article id="budgets" class="panel budgets-panel reveal"><div class="panel-heading"><div><h2>Monthly budgets</h2><p class="muted">Spend with intention</p></div><button id="manageBudgetBtn" class="text-btn">＋ Set limit</button></div><div id="budgetList" class="budget-list"><p class="empty-hint">No budgets yet. Set your first limit.</p></div><div class="budget-note"><span>✦</span><p>Budgets help turn your goals into habits.</p></div></article>
+      </section>
+      <footer>Made for mindful money moments <span>✦</span><small>MONETA · PERSONAL FINANCE</small></footer>
+    </main>
+  </div>
+
+  <dialog id="transactionDialog" class="modal">
+    <form id="transactionForm" class="modal-card">
+      <div class="modal-heading"><div><div class="eyebrow">MONEY MOVEMENT</div><h2 id="transactionModalTitle">Add transaction</h2></div><button type="button" class="icon-button" data-close="transactionDialog" aria-label="Close">×</button></div>
+      <input type="hidden" id="transactionId">
+      <div class="type-switch"><label><input type="radio" name="type" value="expense" checked><span>↘ Expense</span></label><label><input type="radio" name="type" value="income"><span>↗ Income</span></label></div>
+      <label class="field"><span>What was it for?</span><input id="titleInput" name="title" required maxlength="90" placeholder="e.g. Weekend groceries"></label>
+      <div class="form-row"><label class="field"><span>Amount (₹)</span><input id="amountInput" name="amount" type="number" min="0.01" step="0.01" required placeholder="0.00"></label><label class="field"><span>Category</span><select id="categoryInput" name="category" required><option>Food</option><option>Salary</option><option>Freelance</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Housing</option><option>Other</option></select></label></div>
+      <label class="field"><span>Date</span><input id="dateInput" name="date" type="date" required></label>
+      <label class="field"><span>Note <small>(optional)</small></span><textarea id="noteInput" name="note" rows="2" maxlength="300" placeholder="Add a little context…"></textarea></label>
+      <p id="formError" class="form-error" role="alert"></p>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-close="transactionDialog">Cancel</button><button class="btn btn-primary" type="submit">Save transaction <span>↗</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog id="budgetDialog" class="modal">
+    <form id="budgetForm" class="modal-card">
+      <div class="modal-heading"><div><div class="eyebrow">SPENDING PLAN</div><h2>Set a budget</h2></div><button type="button" class="icon-button" data-close="budgetDialog" aria-label="Close">×</button></div>
+      <label class="field"><span>Category</span><select id="budgetCategory" required><option>Food</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Housing</option><option>Other</option></select></label>
+      <label class="field"><span>Monthly limit (₹)</span><input id="budgetLimit" type="number" min="1" step="1" required placeholder="e.g. 5000"></label>
+      <p id="budgetError" class="form-error" role="alert"></p>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-close="budgetDialog">Cancel</button><button class="btn btn-primary" type="submit">Save budget ↗</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

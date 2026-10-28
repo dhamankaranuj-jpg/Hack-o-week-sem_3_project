@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Monthly salary",
+    "type": "income",
+    "amount": 45000,
+    "category": "Salary",
+    "date": "2026-10-01",
+    "note": "October salary"
+  },
+  {
+    "title": "Groceries",
+    "type": "expense",
+    "amount": 2350,
+    "category": "Food",
+    "date": "2026-10-03",
+    "note": "Weekly groceries"
+  },
+  {
+    "title": "Bus pass",
+    "type": "expense",
+    "amount": 900,
+    "category": "Transport",
+    "date": "2026-10-05",
+    "note": "Monthly commute"
+  },
+  {
+    "title": "Freelance landing page",
+    "type": "income",
+    "amount": 6500,
+    "category": "Freelance",
+    "date": "2026-10-10",
+    "note": "Website project"
+  },
+  {
+    "title": "Internet bill",
+    "type": "expense",
+    "amount": 799,
+    "category": "Bills",
+    "date": "2026-10-12",
+    "note": "Home broadband"
+  },
+  {
+    "title": "Course materials",
+    "type": "expense",
+    "amount": 1250,
+    "category": "Education",
+    "date": "2026-10-17",
+    "note": "Books and stationery"
+  }
+]
