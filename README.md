@@ -5,7 +5,7 @@
 A premium, animated full-stack expense tracking dashboard. Track income and expenses, set category budgets, and understand your spending through live charts.
 
 **🔗 Live Demo:** https://YOUR-APP-NAME.onrender.com
-**📂 Source Code:** https://github.com/YOUR-USERNAME/expense-tracker-pro
+**📂 Source Code:** https://github.com/dhamankaranuj-jpg/Hack-o-week-sem_3_project
 
 > The free hosting plan sleeps after inactivity, so the first load may take 30–50 seconds.
 
@@ -13,9 +13,9 @@ A premium, animated full-stack expense tracking dashboard. Track income and expe
 
 ## 📸 Screenshots
 
-| Dashboard | Transactions |
+| Dashboard | Add Transaction |
 |---|---|
-| ![Dashboard](screenshots/dashboard.png) | ![Transactions](screenshots/transactions.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Add Transaction](screenshots/add-transaction.png) |
 
 ---
 
@@ -63,8 +63,8 @@ The server serves both the frontend and the API from the same origin, so no sepa
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR-USERNAME/expense-tracker-pro.git
-cd expense-tracker-pro
+git clone https://github.com/dhamankaranuj-jpg/Hack-o-week-sem_3_project.git
+cd Hack-o-week-sem_3_project
 
 # 2. Install dependencies
 npm install
@@ -138,7 +138,7 @@ Tests cover health status, JSON 404 handling and summary input validation. They 
 ## 📁 Project Structure
 
 ```text
-expense-tracker-pro/
+Hack-o-week-sem_3_project/
 ├── data/sample-transactions.json
 ├── public/            # index.html, styles.css, app.js
 ├── src/
