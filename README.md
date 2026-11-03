@@ -4,10 +4,6 @@
 
 A premium, animated full-stack expense tracking dashboard. Track income and expenses, set category budgets, and understand your spending through live charts.
 
-**🔗 Live Demo:** https://YOUR-APP-NAME.onrender.com
-**📂 Source Code:** https://github.com/dhamankaranuj-jpg/Hack-o-week-sem_3_project
-
-> The free hosting plan sleeps after inactivity, so the first load may take 30–50 seconds.
 
 ---
 
