@@ -158,11 +158,6 @@ Hack-o-week-sem_3_project/
 
 This is a starter built for a single trusted user. Before real public use, add authentication, per-user data isolation, rate limiting, security headers and monitoring.
 
-## 👨‍💻 Author
-
-**Anuj** — Symbiosis Institute of Technology, Nagpur
-Built for a hackathon project.
-
 ## 📄 License
 
 MIT
